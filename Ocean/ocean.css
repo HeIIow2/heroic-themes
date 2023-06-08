@@ -15,6 +15,17 @@ body.ocean {
     --background: #131520;
     --secondary-background: #0F111A;
 
+    --button-background: #1d2030;
+    --button-text: white;
+
+    --box-shadow-color: #969696;
+    --secondary-box-shadow-color: #707070;
+    --tertiary-box-shadow-color: #727272;
+
+    --box-shadow: 0 0 0 0 var(--box-shadow-color); 
+    --secondary-box-shadow: var(--box-shadow-color);
+
+    --border-radius: var(--space-xs);
 
     --accent: var(--text);
     /*The text in the navbar, of the selected element*/
@@ -43,5 +54,140 @@ body.ocean {
     --osk-background: var(--background);
     --osk-button-background: var(--secondary-background);
     --osk-button-border: #ffffffff;
-  }
+}
+
+body.ocean .Field>input, 
+body.ocean select, 
+body.ocean .gameCard, 
+body.ocean .gameCard>span,
+body.ocean .SearchBar,
+body.ocean .progressHeader,
+body.ocean .dmItemList
+{
+  box-shadow: var(--box-shadow) !important;
+  background-color: var(--button-background);
+}
+
+body.ocean .store-icon {
+  background: none;
+}
+
+body.ocean .Sidebar {
+  box-shadow: 0 0 0 0 var(--box-shadow-color);
+}
+
+body.ocean .divider {
+  height: 1px;
+  margin: var(--space-3xs) 0 !important;
+}
+
+body.ocean .dmItemList {
+  border: none;
+}
+
+body.ocean .downloadManagerListItem {
+  border-top: none !important;
+  box-shadow: 0 -1px 0 0 var(--tertiary-box-shadow-color);
+
+  margin: 0;
+  padding: var(--space-md) var(--space-sm-fixed);
+}
+
+body.ocean .numberOfgames {
+  background: none;
+}
+
+body.ocean .SearchBar,
+body.ocean .gameCard,
+body.ocean .Field>input, 
+body.ocean select, 
+body.ocean .progressHeader,
+body.ocean .dmItemList,
+body.ocean .svg-button
+{
+  border-radius: var(--border-radius);
+}
+
+body.ocean .toggle,
+body.ocean .gameConfigContainer .titleWrapper .settings-icon {
+  color: var(--button-text) !important;
+  background: var(--button-background) !important;
+}
+
+
+/*
+* The filters and simmilar stuff in the Library thingie
+*/
+
+
+
+body.ocean .Header__filters {
+  height: 100%;
+  min-height: 35px;
+}
+
+body.ocean .platformFilters {
+  margin: 0;
+}
+
+body.ocean .storeFilter {
+  margin: auto 24px;
+}
+
+body.ocean *:has(>.FormControl) {
+  height: 100%;
+}
+
+body.ocean .FormControl {
+  height: 100%;
+
+  background: var(--button-background);
+  color: var(--button-text);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+}
+
+body.ocean .FormControl .FormControl__button:first-child {
+  border-radius: var(--border-radius) 0 0 var(--border-radius) !important;
+}
+
+body.ocean .FormControl .FormControl__button:last-child {
+  border-radius: 0 var(--border-radius) var(--border-radius) 0 !important;
+}
+
+body.ocean .FormControl__button:hover,
+body.ocean .FormControl__button.active  {
+  background: var(--secondary-background) !important;
+}
+
+body.ocean .ActionIcons .FormControl__button>svg{
+  margin: auto;
+}
+
+
+/*
+* All default Buttons,
+* and their hovering
+*/
+body.ocean *:not(.submenu)>.button,
+body.ocean .sideloadGameButton,
+body.ocean .titleWrapper .svg-button, 
+body.ocean .game-actions  {
+  background: var(--button-background);
+  color: var(--button-text);
+  box-shadow: var(--box-shadow);
+  
+  border-radius: var(--border-radius);
+}
+
+body.ocean *:not(.submenu).button:hover,
+body.ocean .sideloadGameButton:hover,
+body.ocean .titleWrapper .svg-button:hover, 
+body.ocean .titleWrapper .settings-icon:hover {
+  background: var(--secondary-background) !important;
+  color: var(--button-text);
+}
+
+
+
   
