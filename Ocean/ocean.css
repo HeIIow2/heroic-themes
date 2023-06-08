@@ -27,7 +27,7 @@ body.ocean {
 
     --border-radius: var(--space-xs);
 
-    --accent: var(--text);
+    --accent: var(--custom-accent);
     /*The text in the navbar, of the selected element*/
     --accent-overlay: #fefefe;
     /*The text in the navbar, which isn't selected*/
@@ -157,7 +157,7 @@ body.ocean .FormControl .FormControl__button:last-child {
 
 body.ocean .FormControl__button:hover,
 body.ocean .FormControl__button.active  {
-  background: var(--secondary-background) !important;
+  background: var(--custom-accent) !important;
 }
 
 body.ocean .ActionIcons .FormControl__button>svg{
@@ -174,20 +174,25 @@ body.ocean .sideloadGameButton,
 body.ocean .titleWrapper .svg-button, 
 body.ocean .game-actions  {
   background: var(--button-background);
-  color: var(--button-text);
+  color: var(--button-text) !important;
   box-shadow: var(--box-shadow);
   
   border-radius: var(--border-radius);
+
+  transition: 0s;
 }
 
 body.ocean *:not(.submenu).button:hover,
 body.ocean .sideloadGameButton:hover,
 body.ocean .titleWrapper .svg-button:hover, 
 body.ocean .titleWrapper .settings-icon:hover {
-  background: var(--secondary-background) !important;
+  box-shadow: var(--box-shadow);
+
+  background: var(--custom-accent) !important;
   color: var(--button-text);
 }
 
-
-
-  
+body.ocean .Sidebar__item:hover .Sidebar__itemIcon,
+body.ocean .Sidebar__item:hover span {
+  color: var(--button-text);
+}
