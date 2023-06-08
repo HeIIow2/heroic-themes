@@ -22,6 +22,8 @@ body.ocean {
     --secondary-box-shadow-color: #707070;
     --tertiary-box-shadow-color: #727272;
 
+    --focus-outline: var(--custom-accent) solid 1px;
+
     --box-shadow: 0 0 0 0 var(--box-shadow-color); 
     --secondary-box-shadow: var(--box-shadow-color);
 
@@ -29,7 +31,8 @@ body.ocean {
 
     --accent: var(--custom-accent);
     /*The text in the navbar, of the selected element*/
-    --accent-overlay: #fefefe;
+    /*--accent-overlay: #fefefe;*/
+    --accent-overlay: var(--custom-accent);
     /*The text in the navbar, which isn't selected*/
     --navbar-accent: var(--text);
     
@@ -54,7 +57,10 @@ body.ocean {
     --osk-background: var(--background);
     --osk-button-background: var(--secondary-background);
     --osk-button-border: #ffffffff;
+
+    outline-color: var(--custom-accent);
 }
+
 
 body.ocean .Field>input, 
 body.ocean select, 
@@ -66,6 +72,10 @@ body.ocean .dmItemList
 {
   box-shadow: var(--box-shadow) !important;
   background-color: var(--button-background);
+}
+
+body.ocean .SearchBar:focus-within {
+  outline: var(--focus-outline);
 }
 
 body.ocean .store-icon {
@@ -106,6 +116,16 @@ body.ocean .dmItemList,
 body.ocean .svg-button
 {
   border-radius: var(--border-radius);
+}
+
+body.ocean .SearchBar:focus-within,
+body.ocean .gameCard:focus-within,
+body.ocean .Field>input:focus-within, 
+body.ocean select:focus-within, 
+body.ocean .progressHeader:focus-within,
+body.ocean .dmItemList:focus-within,
+body.ocean .svg-button:focus-within {
+  outline: var(--focus-outline);
 }
 
 body.ocean .toggle,
@@ -193,6 +213,8 @@ body.ocean .titleWrapper .settings-icon:hover {
 }
 
 body.ocean .Sidebar__item:hover .Sidebar__itemIcon,
-body.ocean .Sidebar__item:hover span {
+body.ocean .Sidebar__item:hover span,
+body.ocean .Sidebar__item.active .Sidebar__itemIcon,
+body.ocean .Sidebar__item.active span {
   color: var(--button-text);
 }
