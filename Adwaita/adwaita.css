@@ -12,6 +12,8 @@ body.adwaita {
     --text: #BFC3C4;
     --custom-accent: #15539E;
     --custom-accent-hover: #225a9e; 
+    --outline-color: #44648b;
+    --outline-width: 1px;
     --background: #232323;
     --secondary-background: #353535;
 
@@ -22,7 +24,7 @@ body.adwaita {
     --secondary-box-shadow-color: #202020;
     --tertiary-box-shadow-color: #5a5a59;
 
-    --box-shadow: 0 0 0 1px var(--box-shadow-color); 
+    --box-shadow: 0 0 0 var(--outline-width) var(--box-shadow-color); 
     --secondary-box-shadow: var(--box-shadow-color);
 
     --border-radius: var(--space-xs);
@@ -119,10 +121,31 @@ body.adwaita .gameConfigContainer .titleWrapper .settings-icon {
 
 
 /*
-* The filters and simmilar stuff in the Library thingie
+* The input and selects
 */
 
+body.adwaita select,
+body.adwaita input {
+  border-radius: var(--border-radius);
 
+  outline: none;
+}
+
+body.adwaita select:focus,
+body.adwaita input:focus {
+  border-radius: var(--border-radius);
+
+  outline: var(--outline-color) solid var(--outline-width);
+}
+
+body.adwaita select {
+  grid-area: select;
+  border: none;
+}
+
+/*
+* The filters and simmilar stuff in the Library thingie
+*/
 
 body.adwaita .Header__filters {
   height: 100%;
