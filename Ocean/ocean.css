@@ -74,10 +74,6 @@ body.ocean .dmItemList
   background-color: var(--button-background);
 }
 
-body.ocean .SearchBar:focus-within {
-  outline: var(--focus-outline);
-}
-
 body.ocean .store-icon {
   background: none;
 }
@@ -126,6 +122,10 @@ body.ocean .progressHeader:focus-within,
 body.ocean .dmItemList:focus-within,
 body.ocean .svg-button:focus-within {
   outline: var(--focus-outline);
+}
+
+body.ocean .searchButton svg:focus {
+  outline: none;
 }
 
 body.ocean .toggle,
