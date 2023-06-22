@@ -57,10 +57,7 @@ body.ocean {
     --osk-background: var(--background);
     --osk-button-background: var(--secondary-background);
     --osk-button-border: #ffffffff;
-
-    outline-color: var(--custom-accent);
 }
-
 
 body.ocean .Field>input, 
 body.ocean select, 
@@ -73,6 +70,131 @@ body.ocean .dmItemList
   box-shadow: var(--box-shadow) !important;
   background-color: var(--button-background);
 }
+
+/* 
+Input header on the main page: 
+
+- .FormControl is the class for the store Filters, the platform filters, the action stuff (like sorting, show hidden, ...)
+- .SearchBar is the container for:
+  - .searchButton (the icon)
+  - .searchInput 
+  - .autoComplete <ul>
+*/
+
+/* Search text input + autocomplete */ 
+body.ocean .Header__search {
+  height: 50px;
+  
+}
+
+body.ocean .SearchBar {
+  /* I know this is duplicated but I want to seperate the css a bit */
+  box-shadow: var(--box-shadow) !important;
+  background-color: var(--button-background);
+
+  left: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 34px auto 1fr;
+
+  max-width: 450px;
+}
+
+body.ocean .searchButton {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+body.ocean .searchBarInput {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+body.ocean .clearSearchButton {
+  grid-row: 1;
+  grid-column: 3;
+}
+
+body.ocean .SearchBar:focus-within .autoComplete {
+  border-top: 1px solid var(--custom-accent) ;
+
+  display: inline-grid;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+  background-color: var(--button-background);
+
+  padding-top: var(--space-md);
+  margin-top: var(--space-xs);
+  margin-bottom: calc(var(--space-xs) * -1);
+
+  position: relative;
+  top: 0;
+
+  width: calc(100% + var(--space-xs) * 2);
+  grid-row: 3;
+
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+body.ocean .SearchBar .autoComplete::-webkit-scrollbar {
+  background: none;
+}
+
+/* filter */
+body.ocean .Header__filters {
+  height: 100%;
+  min-height: 35px;
+}
+
+body.ocean .platformFilters {
+  margin: 0;
+}
+
+body.ocean .storeFilter {
+  margin: auto 24px;
+}
+
+body.ocean .SearchBar
+{
+  border-radius: var(--border-radius);
+}
+
+body.ocean *:has(>.FormControl) {
+  height: 100%;
+}
+
+body.ocean .FormControl {
+  height: 100%;
+
+  background: var(--button-background);
+  color: var(--button-text);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+}
+
+body.ocean .FormControl .FormControl__button:first-child {
+  border-radius: var(--border-radius) 0 0 var(--border-radius) !important;
+}
+
+body.ocean .FormControl .FormControl__button:last-child {
+  border-radius: 0 var(--border-radius) var(--border-radius) 0 !important;
+}
+
+body.ocean .FormControl__button:hover,
+body.ocean .FormControl__button.active  {
+  background: var(--custom-accent) !important;
+}
+
+body.ocean .ActionIcons .FormControl__button>svg{
+  margin: auto;
+}
+
+/* card stuff */
 
 body.ocean .store-icon {
   background: none;
@@ -141,48 +263,7 @@ body.ocean .gameConfigContainer .titleWrapper .settings-icon {
 
 
 
-body.ocean .Header__filters {
-  height: 100%;
-  min-height: 35px;
-}
 
-body.ocean .platformFilters {
-  margin: 0;
-}
-
-body.ocean .storeFilter {
-  margin: auto 24px;
-}
-
-body.ocean *:has(>.FormControl) {
-  height: 100%;
-}
-
-body.ocean .FormControl {
-  height: 100%;
-
-  background: var(--button-background);
-  color: var(--button-text);
-  box-shadow: var(--box-shadow);
-  border-radius: var(--border-radius);
-}
-
-body.ocean .FormControl .FormControl__button:first-child {
-  border-radius: var(--border-radius) 0 0 var(--border-radius) !important;
-}
-
-body.ocean .FormControl .FormControl__button:last-child {
-  border-radius: 0 var(--border-radius) var(--border-radius) 0 !important;
-}
-
-body.ocean .FormControl__button:hover,
-body.ocean .FormControl__button.active  {
-  background: var(--custom-accent) !important;
-}
-
-body.ocean .ActionIcons .FormControl__button>svg{
-  margin: auto;
-}
 
 
 /*
@@ -218,3 +299,43 @@ body.ocean .Sidebar__item.active .Sidebar__itemIcon,
 body.ocean .Sidebar__item.active span {
   color: var(--button-text);
 }
+
+/* more dynamic cards */
+
+body.ocean .gameList {
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+
+body.ocean .gameList div {
+  min-width: 200px;
+  width: 200px;
+  height: 300px;
+
+  flex-grow: 1;
+}
+
+body.ocean .gameList div > div {
+  width: 100%;
+}
+
+body.ocean .gameList .gameCard {
+  align-items: center;
+  align-content: center;
+}
+
+/*
+body.ocean .gameList div:last-child {
+  grid-column-end: -1;
+  column-span: all;
+}
+
+body.ocean .gameList div:first-child .gameCard {
+  aspect-ratio: auto;
+}
+*/
